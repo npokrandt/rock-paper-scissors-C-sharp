@@ -30,10 +30,30 @@ namespace RockPaperScissors{
 
             string AIguess = AIoptions[rand.Next(3)];
             Console.WriteLine(AIguess);
-            Console.WriteLine(userItem);
+            //Console.WriteLine(userItem);
 
             //now, compare the two guesses and award the winner
-            //How to rock, paper, scissors:
+            if (AIguess == userItem){
+                Console.WriteLine("The game ended in a tie");
+            } else if (AIguess == "rock"){
+                if (userItem == "scissors"){
+                    Console.WriteLine(AIwin());
+                } else if (userItem == "paper"){
+                    Console.WriteLine(userWin());
+                }
+            } else if (AIguess == "paper"){
+                if (userItem == "scissors"){
+                    Console.WriteLine(userWin());
+                } else if (userItem == "rock"){
+                    Console.WriteLine(AIwin());
+                }
+            } else if (AIguess == "scissors"){
+                if (userItem == "rock"){
+                    Console.WriteLine(userWin());
+                } else if (userItem == "paper"){
+                    Console.WriteLine(AIwin());
+                }
+            }
 
             //prompt to start game
             //user is prompted for rock, paper, or scissors
@@ -41,6 +61,14 @@ namespace RockPaperScissors{
             //winner is declared and their win total upped
 
             //possibly store data in a csv file or something, and give the option to reset at some point
+        }
+
+        public static string AIwin(){
+            return "The AI won";
+        }
+
+        public static string userWin(){
+            return "You won!";
         }
     }
 }
