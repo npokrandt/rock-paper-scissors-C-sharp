@@ -4,6 +4,7 @@ namespace RockPaperScissors{
     class Gameplay{
 
         public static void PlayGame(){
+            string[] AIoptions = {"rock", "paper", "scissors"};
             Console.WriteLine("Welcome to rock, paper, scissors!");
 
             //record the user's item 
@@ -25,9 +26,13 @@ namespace RockPaperScissors{
                 }
             }
 
-            //next, get the AI's submission
+            var rand = new Random();
 
+            string AIguess = AIoptions[rand.Next(3)];
+            Console.WriteLine(AIguess);
+            Console.WriteLine(userItem);
 
+            //now, compare the two guesses and award the winner
             //How to rock, paper, scissors:
 
             //prompt to start game
